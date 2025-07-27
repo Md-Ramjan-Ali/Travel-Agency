@@ -3,9 +3,13 @@ import { navLinks } from '../../../constant/constant'
 import Link from 'next/link'
 import { RxHamburgerMenu } from 'react-icons/rx'
 
-export default function Navbar() {
+type props = {
+  openNav: () => void
+}
+export default function Navbar({ openNav }: props) {
+
   return (
-    <div className='bg-blue-950 transition-all duration-300 h-[12vh] z-[1000] text-white'>
+    <div className='bg-blue-950 transition-all duration-300 h-[12vh] z-[1000] text-white fixed w-full'>
       <div className="flex justify-between items-center mx-auto h-full w-[90%] lg:w-[80%]">
         {/* Logo */}
         <div className="">
@@ -22,7 +26,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-4">
           <button className='px-6 py-2 bg-white text-black rounded-xl'>Booking Now</button>
           {/* Hamburger Menu (Mobile) */}
-          <RxHamburgerMenu className='w-7 h-7 lg:hidden text-2xl cursor-pointer' />
+          <RxHamburgerMenu onClick={openNav} className='w-7 h-7 lg:hidden text-2xl cursor-pointer' />
         </div>
       </div>
     </div>
