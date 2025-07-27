@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { navLinks } from '../../../constant/constant'
 import Link from 'next/link'
 import { RxHamburgerMenu } from 'react-icons/rx'
@@ -7,10 +8,18 @@ type props = {
   openNav: () => void
 }
 export default function Navbar({ openNav }: props) {
-
+  const [navBg, setNavBg] = useState(false);
+  useEffect(() => {
+    const handler = () => {
+      if (window.scrollY >= 90) setNavBg(true)
+      if (window.scrollY < 90) setNavBg(false)
+    }
+    window.addEventListener('scroll', handler)
+    return window.removeEventListener('scroll', handler)
+  }, [])
   return (
-    <div className='bg-blue-950 transition-all duration-300 h-[12vh] z-[1000] text-white fixed w-full'>
-      <div className="flex justify-between items-center mx-auto h-full w-[90%] lg:w-[80%]">
+    <div className={` ${navBg ? 'bg-blue-950' : 'fixed'} transition-all duration-300 h-[12vh] z-[1000] text-white fixed w-full`}>
+      <div className="flex justify-between items-center mx-auto h-full w-[95%] lg:w-[90%]">
         {/* Logo */}
         <div className="">
           <h1 className='text-2xl font-bold'>Travel</h1>
