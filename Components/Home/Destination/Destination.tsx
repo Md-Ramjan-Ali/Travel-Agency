@@ -10,7 +10,7 @@ export default function Destination() {
         <SectionHeading heading='Exploring Popular Destination' subHeading="Discover the world's most loved travel spots, rich with culture, adventure, and unforgettable experiences." />
       </div>
       {/* section content */}
-      <div className="w-[80%] mx-auto mt-4">
+      <div className="w-[80%] mx-auto mt-16">
         <DestinationSlider />
       </div>
 
