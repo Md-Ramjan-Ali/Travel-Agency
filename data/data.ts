@@ -194,3 +194,30 @@ export const reviewData = [
     image: "/images/u2.jpg",
   },
 ];
+
+export const newsData = [
+  {
+    id: 1,
+    title: "Top 10 place to visit in Australia",
+    date: "15 November 2024",
+    image: "/images/n1.jpg",
+  },
+  {
+    id: 2,
+    title: "Top 10 place to visit in Bangladesh",
+    date: "25 November 2024",
+    image: "/images/n2.jpg",
+  },
+  {
+    id: 3,
+    title: "Top 10 place to visit in Pakistan",
+    date: "5 November 2024",
+    image: "/images/n3.jpg",
+  },
+  {
+    id: 4,
+    title: "Top 10 place to visit in New Zealand",
+    date: "1 November 2024",
+    image: "/images/n4.jpg",
+  },
+];

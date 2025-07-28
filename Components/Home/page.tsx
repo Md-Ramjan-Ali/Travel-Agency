@@ -4,6 +4,7 @@ import Destination from './Destination/Destination'
 import Hotel from './Hotel/Hotel'
 import WhyChoose from './WhyChoose/WhyChoose'
 import Reviews from './Reviews/Reviews'
+import News from './News/News'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hotel />
       <WhyChoose />
       <Reviews />
+      <News />
     </div>
   )
 }

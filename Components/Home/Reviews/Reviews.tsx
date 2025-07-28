@@ -5,7 +5,7 @@ import ReviewSlider from './ReviewSlider'
 
 export default function Reviews() {
   return (
-    <div className='py-20 flex justify-center items-center bg-blue-800'>
+    <div className='py-20 flex justify-center items-center bg-[#13357b]'>
       <div className="w-[80%] mx-auto grid items-center grid-cols-1 lg:grid-cols-2 gap-8">
         {/* text-content */}
         <div className="text-white">
