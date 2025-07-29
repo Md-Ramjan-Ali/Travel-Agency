@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
 import "./globals.css";
-import ResponsiveNav from "../../Components/Home/Navbar/ResponsiveNav";
-import Footer from "../../Components/Home/Footer/Footer";
+import ResponsiveNav from "../../components/Home/Navbar/ResponsiveNav";
+import Footer from "../../components/Home/Footer/Footer";
+import LayoutWrapper from "../../components/Helper/LayoutWrapper";
+
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,8 +30,11 @@ export default function RootLayout({
         className={`${poppins.className} antialiased`}
       >
         <ResponsiveNav></ResponsiveNav>
-        <main>
-          {children}
+
+        <main className="overflow-auto h-[calc(100vh-54vh)]">
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
         </main>
         <Footer />
       </body>

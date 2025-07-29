@@ -5,22 +5,34 @@ import Link from 'next/link'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { FaGlobeAmericas } from 'react-icons/fa'
 import { IoMdLogIn } from 'react-icons/io'
+import { usePathname } from 'next/navigation'
 
 type props = {
   openNav: () => void
 }
 export default function Navbar({ openNav }: props) {
   const [navBg, setNavBg] = useState(false);
+
+  // useEffect(() => {
+  //   const handler = () => {
+  //     if (window.scrollY >= 90) setNavBg(true)
+  //     if (window.scrollY < 90) setNavBg(false)
+  //   }
+  //   window.addEventListener('scroll', handler)
+  //   return () => window.removeEventListener('scroll', handler)
+  // }, [])
   useEffect(() => {
     const handler = () => {
-      if (window.scrollY >= 90) setNavBg(true)
-      if (window.scrollY < 90) setNavBg(false)
+      setNavBg(window.scrollY > 10);
     }
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const pathname = usePathname()
+  const bgClass = pathname === '/' ? (navBg ? 'bg-blue-950 shadow-lg' : 'bg-transparent') : 'bg-blue-950'
   return (
-    <div className={` fixed w-full transition-all duration-300 h-[12vh] z-[1000] text-white ${navBg ? 'bg-blue-950 shadow-lg' : 'bg-transparent'}`}>
+    <div className={` fixed w-full transition-all duration-300 h-[12vh] z-[1000] text-white ${bgClass}`}>
       <div className="flex justify-between items-center mx-auto h-full w-[95%] lg:w-[90%]">
         {/* Logo */}
         <div className="flex items-center gap-2 text-2xl font-bold">
