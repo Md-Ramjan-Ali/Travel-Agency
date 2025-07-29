@@ -8,7 +8,7 @@ export default function Hero() {
       {/* overly in the hero bg */}
       <div className="absolute top-0 left-0 w-full h-full bg-gray-800 opacity-70 "></div>
       {/* video */}
-      <video src="/video/hero1.mp4" autoPlay muted loop preload='metadata' className='w-full h-full object-cover'></video>
+      <video src="/video/video.mp4" autoPlay muted loop preload='metadata' className='w-full h-full object-cover'></video>
       {/* text */}
       <div className="absolute z-[100] w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center ">
         <div className="text-center space-y-4 text-white">

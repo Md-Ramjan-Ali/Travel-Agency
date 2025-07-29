@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
 import "./globals.css";
 import ResponsiveNav from "../../Components/Home/Navbar/ResponsiveNav";
+import Footer from "../../Components/Home/Footer/Footer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <ResponsiveNav></ResponsiveNav>
         {children}
+        <Footer />
       </body>
     </html>
   );
