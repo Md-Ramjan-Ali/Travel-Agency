@@ -13,21 +13,21 @@ type props = {
 export default function Navbar({ openNav }: props) {
   const [navBg, setNavBg] = useState(false);
 
-  // useEffect(() => {
-  //   const handler = () => {
-  //     if (window.scrollY >= 90) setNavBg(true)
-  //     if (window.scrollY < 90) setNavBg(false)
-  //   }
-  //   window.addEventListener('scroll', handler)
-  //   return () => window.removeEventListener('scroll', handler)
-  // }, [])
   useEffect(() => {
     const handler = () => {
-      setNavBg(window.scrollY > 10);
+      if (window.scrollY >= 90) setNavBg(true)
+      if (window.scrollY < 90) setNavBg(false)
     }
-    window.addEventListener('scroll', handler);
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+  // useEffect(() => {
+  //   const handler = () => {
+  //     setNavBg(window.scrollY > 10);
+  //   }
+  //   window.addEventListener('scroll', handler);
+  //   return () => window.removeEventListener('scroll', handler);
+  // }, []);
 
   const pathname = usePathname()
   const bgClass = pathname === '/' ? (navBg ? 'bg-blue-950 shadow-lg' : 'bg-transparent') : 'bg-blue-950'
@@ -42,9 +42,14 @@ export default function Navbar({ openNav }: props) {
         {/* navLinks */}
         <div className="hidden lg:flex items-center space-x-8">
           {
-            navLinks.map(link => <Link href={link.url} key={link.id}>
-              <p className="relative font-medium w-fit block after:block after:content-[''] after:absolute  after:h-[3px] after:bg-rose-500 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition duration-300 after:origin-left">{link.label}</p>
-            </Link>)
+            navLinks.map(link => {
+              const isActive = pathname === link.url
+              return (
+                <Link href={link.url} key={link.id}>
+                  <span className={`relative ${isActive ? 'border-b-2 border-rose-500 text-rose-500' : ''} font-medium w-fit block after:block after:content-[''] after:absolute  after:h-[3px] after:bg-rose-500 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition duration-300 after:origin-left`}>{link.label}</span>
+                </Link>
+              )
+            })
           }
         </div>
         <div className="flex items-center space-x-4">

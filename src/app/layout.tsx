@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <ResponsiveNav></ResponsiveNav>
 
-        <main className="overflow-auto h-[calc(100vh-54vh)]">
+        <main className="min-h-screen">
           <LayoutWrapper>
             {children}
           </LayoutWrapper>
