@@ -53,7 +53,7 @@ export default function Navbar({ openNav }: props) {
           }
         </div>
         <div className="flex items-center space-x-4">
-          <button className={`px-4 py-2 ${navBg ? 'bg-white text-black' : 'bg-transparent text-white'} rounded-lg font-medium flex items-center gap-1 cursor-pointer hover:text-rose-500`}><span><IoMdLogIn /></span>Login</button>
+          <Link href='/login'> <button className={`px-4 py-2 ${navBg ? 'bg-white text-black' : 'bg-transparent text-white'} rounded-lg font-medium flex items-center gap-1 cursor-pointer hover:text-rose-500`}><span><IoMdLogIn /></span>Login</button></ Link>
           {/* Hamburger Menu (Mobile) */}
           <RxHamburgerMenu onClick={openNav} className='w-7 h-7 lg:hidden text-2xl cursor-pointer' />
         </div>
