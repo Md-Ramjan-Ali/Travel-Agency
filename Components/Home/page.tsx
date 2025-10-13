@@ -13,8 +13,8 @@ export default function Home() {
       <Destination />
       <Hotel />
       <WhyChoose />
-      <Reviews />
       <News />
+      <Reviews />
     </div>
   )
 }
